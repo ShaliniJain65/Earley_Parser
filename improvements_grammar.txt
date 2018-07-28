@@ -1,0 +1,31 @@
+Natural Language Processing:  Assignment 2: Earley Parser
+Shalini Jain A20405095 Herick Asmani A20399752
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+//This text file say about the improvements done in the grammar to make the failed sentences work as per the modified grammar.
+
+2. Look at the grammar. What changes to the grammar alone could improve the parsing (in particular, consider coordinated conjunctions)? Modify the grammar somewhat and evaluate the improvements. What new sentences may be parsed? What invalid sentences are now parsed (if any)?
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+1) yet john steals
+
+-This sentence includes the co-ordinated conjunction "yet" which were not abled to parse before but can be parsed now by adding the follwoing grammar rules in the simple.gr and new file crated is imporvements_grammar.gr.
+			Rules added: s->sbar np
+				     np->fname fv
+		              	     fv-> steals
+				     sbar->yet
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+2) i live for watermelons
+-Added sbar which tends to co-ordinated conjunctions.
+-This sentence a can now be parsed after adding rules in the grammar such as:
+			   Rules added: vbar-mods->sbar fn
+	      			     	sbar->	for
+	       				sbar->	and
+	       				sbar->	nor
+	       				sbar->	but
+	       				sbar->	or
+	       				sbar->	so
+	       				sbar->	yet
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+3)on earth lives aliens
+-This sentence cannot be parsed because of missing preposition rule from noun.
+			Rules added: np->fp np vp
+				     vp->fv fn

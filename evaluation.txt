@@ -1,0 +1,70 @@
+Natural Language Processing:  Assignment 2: Earley Parser
+Shalini Jain A20405095 Herick Asmani A20399752
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+1. Evaluate the parser in its current form:
+-Writing the results evaluated using “simple.gr” grammar.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+a.  What sorts of sentences can it parse?
+- The output is in the following form the nodes of the tree and the bracketed form of the tree.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Solution:  -The parse tree generated using the grammar is as follows:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+1) i was driving to Chicago
+
+ [ ROOT[ s[ np[ fpron[ i]]][ vp[ vbar[ faux[ was]][ fv[ driving]]]][ vbar-mods[ pp[ fp[ to]][ fname[ chicago]]]]]]]]
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+2) john drives from chicago
+
+[ ROOT[ s[ np[ fname[ john]][ vp[ vbar[ fv[ drives]]]][ vbar-mods[ pp[ fp[ from][ chicago]]]]]]]
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+3) aliens live on earth
+
+[ ROOT[ s[ np[ nbar[ fn[ aliens]]]][ vp[ vbar[ fv[ live]]]][ vbar-mods[ pp[ fp[ on]]][ fname[ earth]]]]]]]]
+
+4) do john drives
+
+[ ROOT[ s[ faux[ do]][ np[ fname[ john]]][ vp[ vbar[ fv[ drives]]]]]]
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+5) she is buckaroo
+
+[ ROOT[ s[ np[ fpron[ she]]][ fis[ is]][ fname[ buckaroo]]]]]
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+6) ten lives
+
+[ ROOT[ s[ np[ fname[ ten]]][ vp[ vbar[ fv[ lives]]]]]]
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+b. What types of sentences will it fail to parse?
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+1)earth is a planet
+-Failed because we have no rule for article before the proper noun.(invalid grammar sentence without a determinant)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+2)on earth lives aliens
+-Failed because we do not have grammar which gives first rule of s to fp and therefore cannot parse sentences starting with on,in, to, from (perposiitons)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+3)give us watermelons
+-This sentence fails beacuse we have no rule of s which leads to verb as its first word.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+4)live for watermelon
+-This sentence cannot be parsed beacuse we do not have appropriate rule for co-orodinated conjunctions.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+5)this is chicago
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+c. What improvements to the grammar or parser are required to properly parse common failed sentences?
+
+-We can improve grammar by adding the rules to the grammar such as:
+1. Sentence starting with the verb phrase s->vp np is invalid we need to add a rule which leads to verb. 
+2. Adding the prepositions rule which leads to the prepositions in sentences. 
+3. There is no grammar for articles/determinants before the proper nouns which is incorrect english sentence.
+4. No ending marks are used such as ?, . ! for completeness of the english sentences.
+5. No rule is there for co-ordinated conjunctions  such as for, nor, or, yet, etc.
+6. Sentences ending with "with" are not parsed.
+
+ 
+
+

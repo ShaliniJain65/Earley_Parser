@@ -1,0 +1,47 @@
+Natural Language Processing :Assignment 2
+Shalini Jain A20405095 Herick Asmani A20399752
+
+3. Modify the code to output the parse tree(s) computed, rather than just the dynamic programming table and whether the sentence parses. You will need to add appropriate back-links into the DP table and write a routine to extract trees from the table. Show the tree(s) by printing the input sentence in a bracketed form, for example:
+
+S[ NP[ Det[ the ] N[ man ] ] VP[ V[ saw ] NP[ PN[ her ] ] ] ]
+
+-----------------------------------Solution-------------------------------------------------------------------------------------
+
+Class: Class Node is created in Grammar.java file which generats the parse tree of th input sentence using the appropriate grammar rules.
+Paramaters: We are using left,right and child variables to generate the tree.
+Getters and Setters: getter and setter are used to get the value of the current node data and set the child value is root is name.
+
+-----------------------------flow to generate the tree:--------------------------------------------------------------------------
+
+Step 1: Out of the coloumn table i have fetched the generated after predict and scan operations i filtered by using the complete productions in the curr Vector and listed them as Final Productions in the output.
+
+Step 2:Then created leftstr and rightstr to generate the tree having the value of the rules on left and right side of the "->".
+
+Step 3: Now creating the ArrayList<Nodes> which has nodes of the tree in the list with the childcount and the children it has to build the bracketed form starting with the ROOT.
+
+Step 4:Then we will generate the bracketed form of the parse tree by checking if the root is already present check for its children using addChild() methon else continue to add the next new node using the index values of the tree and if the child is not the right one back link to the previousnode and again repeat the process.
+Class Grammar
+Fucntion name: addCild(ArrayList<Nodes> , int left , int right)
+param:ArrayList of nodes having all the nodes created, index of the left child and the right child.
+returns:updated arraylist with the links between the node and right-left child using backtracing.
+
+Step 5: to print the generated tree we have created the printrule0(Node, String) function having Nodes as arguement1 and the input string as arguement2 and returns the output string in the bracket form.
+Class Node
+Function name : printrule0(Nodes nodes, String output)
+param : Nodes array nodes, and the empty string to fill with the output.
+returns:  the final output string.
+
+*********************************************Probability Grammar*******************************************************************************************
+
+-We can run all the above functions with the probability of the given rule and if the sentence is ambiguous then we can generate two parser trees as there are more than one grammar rules satisfying the given sentence input. 
+And the maximum probablity will be used and is displayed as the output in a brakected parse tree form.
+-Probablity after calculation is displayed in the output.
+
+ambiguous sentence found: "do buckaroo steals".
+
+Generated parse trees: 1->[ ROOT[ S [ faux [ do]][ np[ fname[ buckaroo]]][ vp[ vbar [ fv[ steals]]]]]]
+		       2->[ ROOT[ S [ faux [ do]][ np[ nbar[ fname[ buckaroo]]]][ vp[ vbar [ fv[ steals]]]]]]
+		       3->[ ROOT[ s[ faux[ do]][ fname[ buckaroo]][ fv[ steals]]]]]]]
+
+Here two trees are generated but highest probability is of "1" so we will select that using CYK Algorithm and displays as the output.
+
