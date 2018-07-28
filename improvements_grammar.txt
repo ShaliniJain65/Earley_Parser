@@ -1,5 +1,5 @@
 Natural Language Processing:  Assignment 2: Earley Parser
-Shalini Jain A20405095 Herick Asmani A20399752
+Shalini Jain A20405095
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 //This text file say about the improvements done in the grammar to make the failed sentences work as per the modified grammar.
 
