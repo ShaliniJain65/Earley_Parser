@@ -1,3 +1,6 @@
+Natural Language Processing:  Assignment 2: Earley Parser
+Shalini Jain A20405095
+
 3. Modify the code to output the parse tree(s) computed, rather than just the dynamic programming table and whether the sentence parses. You will need to add appropriate back-links into the DP table and write a routine to extract trees from the table. Show the tree(s) by printing the input sentence in a bracketed form, for example:
 
 S[ NP[ Det[ the ] N[ man ] ] VP[ V[ saw ] NP[ PN[ her ] ] ] ]
