@@ -8,3 +8,4 @@ This project aims at designing an Earley parser in java used Eclipse IDE.
 2)Find invalid sentences as per the CFG.
 3)After fetching the correct sentences with the production generate a parse tree for that valid sentence using OOP concepts of java.
 4)Also Describe which production fails the sentences and what modification should be done to make it valid for the grammar.
+5)We can use probablistics grammar if we have ambigious grammar to result into one with highest porbablity.
